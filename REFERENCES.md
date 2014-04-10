@@ -14,7 +14,15 @@ http://www.raspberrypi.org/
 
 ## tails
 
-https://tails.boum.org/
+home: https://tails.boum.org/
+
+about: https://tails.boum.org/about/index.en.html
+
+warning: https://tails.boum.org/doc/about/warning/index.en.html
+
+documentation: https://tails.boum.org/doc/index.en.html
+
+download: https://tails.boum.org/download/index.en.html
 
 ## tor
 
