@@ -6,7 +6,13 @@ http://archlinuxarm.org/
 
 ## debian
 
-https://www.debian.org/
+home: https://www.debian.org/
+
+about: https://www.debian.org/intro/about
+
+download: https://www.debian.org/distrib/
+
+installation guide: https://www.debian.org/releases/stable/installmanual
 
 ## tails
 
