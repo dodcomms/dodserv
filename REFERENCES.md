@@ -8,10 +8,6 @@ http://archlinuxarm.org/
 
 https://www.debian.org/
 
-## raspberry pi
-
-http://www.raspberrypi.org/
-
 ## tails
 
 home: https://tails.boum.org/
