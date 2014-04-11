@@ -267,7 +267,7 @@ systemctl status prosody
 passwd
 
 cat > ~/.bashrc << __BASHRC__
-alias host='~/dodserv-master/rpi_host.sh'
+alias host=/root/dodserv-master/rpi-host.sh'
 __BASHRC__
 
 echo "PLEASE NOTE: You need make a secure record of the following details for future reference. DO IT NOW!"
