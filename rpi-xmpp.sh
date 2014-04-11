@@ -266,10 +266,6 @@ systemctl status prosody
 
 passwd
 
-cat > ~/.bashrc << __BASHRC__
-alias host=/root/dodserv-master/rpi-host.sh'
-__BASHRC__
-
 echo "PLEASE NOTE: You need make a secure record of the following details for future reference. DO IT NOW!"
 echo "Hostname: $(cat /var/lib/tor/hidden_service/hostname)"
 echo "Admin Account: root@$(cat /var/lib/tor/hidden_service/hostname)"
