@@ -33,15 +33,15 @@ Update the system and install "unzip"
 
 Download the "master.zip"
 
-<pre><code>wget https://github.com/kar5t3n/ab/archive/master.zip</code></pre>
+<pre><code>wget https://github.com/dodcomms/dodserv/archive/master.zip</code></pre>
 
 Unzip the archive
 
 <pre><code>unzip master.zip</code></pre>
 
-Change to the ab-master directory
+Change to the dodserv-master directory
 
-<pre><code>cd ab-master/</code></pre>
+<pre><code>cd dodserv-master/</code></pre>
 
 Change permissions
 
@@ -49,7 +49,7 @@ Change permissions
 
 Install and configure the hidden service
 
-<pre><code>./RPi_xmpp.sh</code></pre>
+<pre><code>./rpi_xmpp.sh</code></pre>
 
 Follow the prompts until you are asked to change your password
 
