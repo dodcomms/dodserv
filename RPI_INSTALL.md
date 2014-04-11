@@ -49,7 +49,7 @@ Change permissions
 
 Install and configure the hidden service
 
-<pre><code>./rpi_xmpp.sh</code></pre>
+<pre><code>./rpi-xmpp.sh</code></pre>
 
 Follow the prompts until you are asked to change your password
 
