@@ -1,25 +1,11 @@
 #!/bin/bash
 #
 
-echo "Be ready to follow the prompts..."
+echo "Follow the prompts and pay attention to your passwords"
 
-sleep 5
-
-echo "... and pay attention to your passwords"
-
-sleep 5
-
-echo "Ready?"
-
-sleep 5
-
-echo "Here we go"
-
-sleep 5
+sleep 10
 
 echo "Updating System"
-
-sleep 5
 
 aptitude update && aptitude upgrade
 
@@ -47,9 +33,9 @@ aptitude install apache2 apache2-doc
 
 echo "Installing MySQL"
 
-# echo "You will be asked to enter a MySQL root user password."
-# echo "Please take note of your MySQL root user password."
-# echo "You will need it again shortly."
+sleep 5
+
+echo "Follow the prompts and pay attention to your passwords"
 
 sleep 10
 
@@ -77,39 +63,27 @@ cd /var/www/wordpress/
 
 echo "Creating Wordpress database"
 
+echo "Follow the prompts and pay attention to your passwords"
+
+sleep 10
+
 echo "MySQL root user"
 
 mysql -u root -p -e "create database wordpress;"
 
 echo "MySQL root user"
 
+cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
+
+sed -i.bak s/database_name_here/wordpress/g wp-config.php
+
+sed -i.bak s/username_here/root/g wp-config.php
+
 echo "Repeat password:"
 
 read dbpassword
 
-cat > /var/www/wordpress/wp-config.php << __WPCONFIG__
-<?php
-define('DB_NAME', 'wordpress');
-define('DB_USER', 'root');
-define('DB_PASSWORD', 'test');
-define('DB_HOST', 'localhost');
-define('DB_CHARSET', 'utf8');
-define('DB_COLLATE', '');
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
-$table_prefix  = 'wp_';
-define('WPLANG', '');
-define('WP_DEBUG', false);
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
-require_once(ABSPATH . 'wp-settings.php');
-__WPCONFIG__
+sed -i.bak s/dbpassword_here/$dbpassword/g wp-config.php
 
 rm /var/www/index.html
 
