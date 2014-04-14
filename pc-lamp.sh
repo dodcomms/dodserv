@@ -116,3 +116,4 @@ sleep 2
 echo "**************************"
 echo "* $(cat /var/lib/tor/hidden_service/hostname *"
 echo "**************************"
+echo ":)"
