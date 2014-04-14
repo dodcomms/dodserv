@@ -1,11 +1,9 @@
 #!/bin/bash
 #
-# LAMP, Linux Apache MySQL PHP
 
-echo "Changing user to root"
-echo "Please enter your root password"
+echo "Be ready to follow the prompts and take note of your MySQL root user password"
 
-su
+sleep 5
 
 echo "Updating System"
 
@@ -37,7 +35,9 @@ aptitude install apache2 apache2-doc
 
 echo "Installing MySQL"
 
-echo "Please take note of your MySQL password. You will need it again shortly."
+echo "You will be asked to enter a MySQL root user password."
+echo "Please take note of your MySQL root user password."
+echo "You will need it again shortly."
 
 sleep 10
 
@@ -61,21 +61,21 @@ echo "Extrating Wordpress"
 
 tar -zxvf latest.tar.gz
 
+cd /var/www/wordpress/
+
 echo "Creating Wordpress database"
 
-echo "Please enter your MySQL password"
-
-sleep 10
+echo "MySQL root user"
 
 mysql -u root -p -e "create database wordpress;"
 
 echo "Configuing Wordpress database"
 
-echo "Please repeat your MySQL Password"
+echo "Please repeat your MySQL root user password"
 
 read dbpassword
 
-cat > /var/www/wp-config.php << __WPCONFIG__
+cat > /var/www/wordpress/wp-config.php << __WPCONFIG__
 <?php
 /**
  * The base configurations of the WordPress.
@@ -174,4 +174,5 @@ cat > /var/www/index.html << __INDEXHTML__
 $(cat /var/lib/tor/hidden_service/hostname)
 __INDEXHTML__
 
-echo "Congratulations! You can now open a Tor browser and visit your hidden service: $(cat /var/lib/tor/hidden_service/hostname)"
+echo "Congratulations! You can now open a Tor browser and"
+echo "visit your hidden service: $(cat /var/lib/tor/hidden_service/hostname)"
