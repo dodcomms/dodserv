@@ -1,5 +1,4 @@
 #!/bin/bash
-#
 
 echo "Follow the prompts and pay attention to your passwords"
 
@@ -14,8 +13,6 @@ echo "Installing Tor"
 aptitude install tor
 
 mv /etc/tor/torrc /etc/tor/torrc.ORIG
-
-# change cat to sed commands
 
 cat > /etc/tor/torrc << __TORRC__
 Log notice syslog
@@ -97,6 +94,8 @@ echo "Congratulations!"
 sleep 2
 echo "Now, open a Tor browser"
 sleep 2
-echo "and visit your hidden service:"
+echo "and visit your hidden service"
 sleep 2
-echo "$(cat /var/lib/tor/hidden_service/hostname)"
+echo "**************************"
+echo "* $(cat /var/lib/tor/hidden_service/hostname *"
+echo "**************************"
