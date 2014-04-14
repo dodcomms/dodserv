@@ -3,7 +3,7 @@
 
 echo "Follow the prompts and pay attention to your passwords"
 
-sleep 10
+sleep 5
 
 echo "Updating System"
 
@@ -14,6 +14,8 @@ echo "Installing Tor"
 aptitude install tor
 
 mv /etc/tor/torrc /etc/tor/torrc.ORIG
+
+# change cat to sed commands
 
 cat > /etc/tor/torrc << __TORRC__
 Log notice syslog
@@ -37,7 +39,7 @@ sleep 5
 
 echo "Follow the prompts and pay attention to your passwords"
 
-sleep 10
+sleep 5
 
 aptitude install mysql-server mysql-client
 
@@ -65,13 +67,11 @@ echo "Creating Wordpress database"
 
 echo "Follow the prompts and pay attention to your passwords"
 
-sleep 10
+sleep 5
 
 echo "MySQL root user"
 
 mysql -u root -p -e "create database wordpress;"
-
-echo "MySQL root user"
 
 cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
 
@@ -83,7 +83,7 @@ echo "Repeat password:"
 
 read dbpassword
 
-sed -i.bak s/dbpassword_here/$dbpassword/g wp-config.php
+sed -i.bak s/password_here/$dbpassword/g wp-config.php
 
 rm /var/www/index.html
 
