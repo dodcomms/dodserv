@@ -59,7 +59,7 @@ wget https://wordpress.org/latest.tar.gz
 
 echo "Extrating Wordpress"
 
-tar -zxvf latest.tar.gz
+tar -xzvf latest.tar.gz
 
 cd /var/www/wordpress/
 
@@ -173,6 +173,8 @@ rm /var/www/index.html
 cat > /var/www/index.html << __INDEXHTML__
 $(cat /var/lib/tor/hidden_service/hostname)
 __INDEXHTML__
+
+rm /var/www/latest.zip
 
 echo "Congratulations! You can now open a Tor browser and"
 echo "visit your hidden service: $(cat /var/lib/tor/hidden_service/hostname)"
