@@ -35,9 +35,9 @@ aptitude install apache2 apache2-doc
 
 echo "Installing MySQL"
 
-echo "You will be asked to enter a MySQL root user password."
-echo "Please take note of your MySQL root user password."
-echo "You will need it again shortly."
+# echo "You will be asked to enter a MySQL root user password."
+# echo "Please take note of your MySQL root user password."
+# echo "You will need it again shortly."
 
 sleep 10
 
@@ -120,14 +120,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '$(date +%s%N | sha256sum | base64 | head -c 64)');
-define('SECURE_AUTH_KEY',  '$(date +%s%N | sha256sum | base64 | head -c 64)');
-define('LOGGED_IN_KEY',    '$(date +%s%N | sha256sum | base64 | head -c 64)');
-define('NONCE_KEY',        '$(date +%s%N | sha256sum | base64 | head -c 64)');
-define('AUTH_SALT',        '$(date +%s%N | sha256sum | base64 | head -c 64)');
-define('SECURE_AUTH_SALT', '$(date +%s%N | sha256sum | base64 | head -c 64)');
-define('LOGGED_IN_SALT',   '$(date +%s%N | sha256sum | base64 | head -c 64)');
-define('NONCE_SALT',       '$(date +%s%N | sha256sum | base64 | head -c 64)');
+define('AUTH_KEY',         'put your unique phrase here');
+define('SECURE_AUTH_KEY',  'put your unique phrase here');
+define('LOGGED_IN_KEY',    'put your unique phrase here');
+define('NONCE_KEY',        'put your unique phrase here');
+define('AUTH_SALT',        'put your unique phrase here');
+define('SECURE_AUTH_SALT', 'put your unique phrase here');
+define('LOGGED_IN_SALT',   'put your unique phrase here');
+define('NONCE_SALT',       'put your unique phrase here');
 
 /**#@-*/
 
@@ -174,7 +174,7 @@ cat > /var/www/index.html << __INDEXHTML__
 $(cat /var/lib/tor/hidden_service/hostname)
 __INDEXHTML__
 
-rm /var/www/latest.zip
+rm /var/www/latest.tar.gz
 
 echo "Congratulations! You can now open a Tor browser and"
 echo "visit your hidden service: $(cat /var/lib/tor/hidden_service/hostname)"
