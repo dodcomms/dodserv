@@ -133,9 +133,7 @@ echo "********************"
 echo "* Congratulations! *"
 echo "********************"
 sleep 2
-echo "In a Tor browser"
-sleep 2
-echo "visit your hidden service"
+echo "Open a Tor browser and visit your hidden service"
 sleep 2
 echo "**************************"
 echo "* $(cat /var/lib/tor/hidden_service/hostname) *"
