@@ -34,9 +34,9 @@ aptitude install apache2 apache2-doc
 
 echo "Installing MySQL"
 
-sleep 5
-
-echo "Follow the prompts and pay attention to your passwords"
+echo "**********************"
+echo "* Follow the prompts *"
+echo "**********************"
 
 sleep 5
 
@@ -64,7 +64,9 @@ cd /var/www/wordpress/
 
 echo "Creating Wordpress database"
 
-echo "Follow the prompts and pay attention to your passwords"
+echo "**********************"
+echo "* Follow the prompts *"
+echo "**********************"
 
 sleep 5
 
