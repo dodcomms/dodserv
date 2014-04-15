@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# Install Tor Hidden Service
+# ssh, LAMP and Wordpress
+# Port 22
+# Port 80
 
 echo "**********************"
 echo "* Follow the prompts *"
@@ -24,8 +29,6 @@ HiddenServicePort 22 127.0.0.1:22
 HiddenServicePort 80 127.0.0.1:80
 __TORRC__
 
-echo "Restarting Tor"
-
 /etc/init.d/tor restart
 
 echo "Installing Apache2"
@@ -33,10 +36,6 @@ echo "Installing Apache2"
 aptitude install apache2 apache2-doc
 
 echo "Installing MySQL"
-
-echo "**********************"
-echo "* Follow the prompts *"
-echo "**********************"
 
 sleep 5
 
@@ -46,8 +45,6 @@ echo "Installing PHP5"
 
 aptitude install php5 php5-mysql libapache2-mod-php5
 
-echo "Restarting Apache2"
-
 /etc/init.d/apache2 restart
 
 echo "Installing Wordpress"
@@ -56,17 +53,9 @@ cd /var/www/
 
 wget https://wordpress.org/latest.tar.gz
 
-echo "Extrating Wordpress"
-
 tar -xzvf latest.tar.gz
 
 cd /var/www/wordpress/
-
-echo "Creating Wordpress database"
-
-echo "**********************"
-echo "* Follow the prompts *"
-echo "**********************"
 
 sleep 5
 
@@ -98,7 +87,19 @@ sed -i.bak s/"define('NONCE_SALT',       'put your unique phrase here');"/"defin
 rm /var/www/index.html
 
 cat > /var/www/index.html << __INDEXHTML__
-$(cat /var/lib/tor/hidden_service/hostname)
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>
+      $(cat /var/lib/tor/hidden_service/hostname)
+    </h1>
+   <p>
+     <a href="http://$(cat /var/lib/tor/hidden_service/hostname)/wordpress" target="_blank">
+        $(cat /var/lib/tor/hidden_service/hostname)/wordpress
+     </a>
+   </p>
+  </body>
+</html>
 __INDEXHTML__
 
 rm /var/www/latest.tar.gz
