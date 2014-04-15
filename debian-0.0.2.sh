@@ -92,14 +92,15 @@ read dbpassword
 
 sed -i.bak s/password_here/$dbpassword/g wp-config.php
 
-sed -i.bak s/"define('AUTH_KEY', 'put your unique phrase here');"/"define('AUTH_KEY', '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
-sed -i.bak s/"define('SECURE_AUTH_KEY', 'put your unique phrase here');"/"define('SECURE_AUTH_KEY', '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
-sed -i.bak s/"define('LOGGED_IN_KEY', 'put your unique phrase here');"/"define('LOGGED_IN_KEY', '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
-sed -i.bak s/"define('NONCE_KEY', 'put your unique phrase here');"/"define('NONCE_KEY', '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
-sed -i.bak s/"define('AUTH_SALT', 'put your unique phrase here');"/"define('AUTH_SALT', '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
+
+sed -i.bak s/"define('AUTH_KEY',         'put your unique phrase here');"/"define('AUTH_KEY',         '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
+sed -i.bak s/"define('SECURE_AUTH_KEY',  'put your unique phrase here');"/"define('SECURE_AUTH_KEY',  '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
+sed -i.bak s/"define('LOGGED_IN_KEY',    'put your unique phrase here');"/"define('LOGGED_IN_KEY',    '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
+sed -i.bak s/"define('NONCE_KEY',        'put your unique phrase here');"/"define('NONCE_KEY',        '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
+sed -i.bak s/"define('AUTH_SALT',        'put your unique phrase here');"/"define('AUTH_SALT',        '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
 sed -i.bak s/"define('SECURE_AUTH_SALT', 'put your unique phrase here');"/"define('SECURE_AUTH_SALT', '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
-sed -i.bak s/"define('LOGGED_IN_SALT', 'put your unique phrase here');"/"define('LOGGED_IN_SALT', '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
-sed -i.bak s/"define('NONCE_SALT', 'put your unique phrase here');"/"define('NONCE_SALT', '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
+sed -i.bak s/"define('LOGGED_IN_SALT',   'put your unique phrase here');"/"define('LOGGED_IN_SALT',   '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
+sed -i.bak s/"define('NONCE_SALT',       'put your unique phrase here');"/"define('NONCE_SALT',       '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
 
 echo "***************"
 echo "* Cleaning up *"
