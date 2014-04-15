@@ -6,7 +6,7 @@
 # CMS - Wordpress (Port 80)
 # Jabber/XMPP - ejabberd (Port 5222)
 #
-# http://patorjk.com/software/taag/#p=display&f=Elite&t=DIE%20OR%20DIE%0A%20%20COMMS%0A%20SERVER
+# http://patorjk.com/software/taag/#p=display&f=Elite&t=DIY%20OR%20DIE%0A%20%20COMMS%0A%20SERVER
 
 echo "·▄▄▄▄  ▪   ▄· ▄▌          ▄▄▄      ·▄▄▄▄  ▪  ▄▄▄ ."
 echo "██▪ ██ ██ ▐█▪██▌    ▪     ▀▄ █·    ██▪ ██ ██ ▀▄.▀·"
@@ -864,7 +864,13 @@ cat > /var/www/index.html << __INDEXHTML__
 </html>
 __INDEXHTML__
 
-echo "Congratulations!"
+
+echo " ▄▄·        ▐ ▄  ▄▄ • ▄▄▄   ▄▄▄· ▄▄▄▄▄▄• ▄▌▄▄▌   ▄▄▄· ▄▄▄▄▄▪         ▐ ▄ .▄▄ · ▄▄ "
+echo "▐█ ▌▪▪     •█▌▐█▐█ ▀ ▪▀▄ █·▐█ ▀█ •██  █▪██▌██•  ▐█ ▀█ •██  ██ ▪     •█▌▐█▐█ ▀. ██▌"
+echo "██ ▄▄ ▄█▀▄ ▐█▐▐▌▄█ ▀█▄▐▀▀▄ ▄█▀▀█  ▐█.▪█▌▐█▌██▪  ▄█▀▀█  ▐█.▪▐█· ▄█▀▄ ▐█▐▐▌▄▀▀▀█▄▐█·"
+echo "▐███▌▐█▌.▐▌██▐█▌▐█▄▪▐█▐█•█▌▐█ ▪▐▌ ▐█▌·▐█▄█▌▐█▌▐▌▐█ ▪▐▌ ▐█▌·▐█▌▐█▌.▐▌██▐█▌▐█▄▪▐█.▀ "
+echo "·▀▀▀  ▀█▄▀▪▀▀ █▪·▀▀▀▀ .▀  ▀ ▀  ▀  ▀▀▀  ▀▀▀ .▀▀▀  ▀  ▀  ▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪ ▀▀▀▀  ▀ "
+
 sleep 2
 echo "Open a Tor browser and visit your hidden service"
 sleep 2
