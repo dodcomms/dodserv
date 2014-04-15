@@ -150,15 +150,7 @@ openssl genrsa -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostnam
 
 openssl req -new -x509 -key /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert -days 1095
 
-echo "***************"
-echo "* Cleaning up *"
-echo "***************"
-
 rm /var/www/latest.tar.gz
-
-echo "*********************"
-echo "* Creating Homepage *"
-echo "*********************"
 
 rm /var/www/index.html
 
@@ -181,9 +173,7 @@ cat > /var/www/index.html << __INDEXHTML__
 </html>
 __INDEXHTML__
 
-echo "********************"
-echo "* Congratulations! *"
-echo "********************"
+echo "Congratulations!"
 sleep 2
 echo "Open a Tor browser and visit your hidden service"
 sleep 2
