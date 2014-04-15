@@ -116,74 +116,18 @@ aptitude install prosody
 
 cd /etc/prosody/
 
-mv /etc/prosody/prosody.cfg.lua /etc/prosody/prosody.cfg.lua.ORIG
+# mv /etc/prosody/prosody.cfg.lua /etc/prosody/prosody.cfg.lua.ORIG
 
-cat > /etc/prosody/prosody.cfg.lua << __PROSODYCONF__
-admins = { "root@$(cat /var/lib/tor/hidden_service/hostname)" }
+# cat > /etc/prosody/prosody.cfg.lua << __PROSODYCONF__
+#
+# __PROSODYCONF__
 
-modules_enabled = {
-
-		"roster"; -- Allow users to have a roster. Recommended ;)
-		"saslauth"; -- Authentication for clients and servers. Recommended if you want to log in.
-		"tls"; -- Add support for secure TLS on c2s/s2s connections
-		"dialback"; -- s2s dialback support
-		"disco"; -- Service discovery
-		"private"; -- Private XML storage (for room bookmarks, etc.)
-		"vcard"; -- Allow users to set vCards
-		--"privacy"; -- Support privacy lists
-		--"compression"; -- Stream compression (Debian: requires lua-zlib module to work)
-		"legacyauth"; -- Legacy authentication. Only used by some old clients and bots.
-		"version"; -- Replies to server version requests
-		"uptime"; -- Report how long server has been running
-		"time"; -- Let others know the time here on this server
-		"ping"; -- Replies to XMPP pings with pongs
-		"pep"; -- Enables users to publish their mood, activity, playing music and more
-		"register"; -- Allow users to register on this server using a client and change passwords
-		"adhoc"; -- Support for "ad-hoc commands" that can be executed with an XMPP client
-		"admin_adhoc"; -- Allows administration via an XMPP client that supports ad-hoc commands
-		"posix"; -- POSIX functionality, sends server to background, enables syslog, etc.
-};
-
-modules_disabled = {
-	-- "presence"; -- Route user/contact status information
-	-- "message"; -- Route messages
-	-- "iq"; -- Route info queries
-	-- "offline"; -- Store offline messages
-};
-
-allow_registration = true;
-
-daemonize = true;
-
-pidfile = "/var/run/prosody/prosody.pid";
-
-ssl = {
-	key = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key";
-	certificate = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert";
-}
-
-c2s_require_encryption = true
-
-authentication = "internal_hashed"
-
-VirtualHost "$(cat /var/lib/tor/hidden_service/hostname)"
-
-	ssl = {
-		key = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key";
-		certificate = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).crt";
-	}
-
-Component "$(cat /var/lib/tor/hidden_service/hostname)" "muc"
-
-Include "conf.d/*.cfg.lua"
-__PROSODYCONG__
-
-openssl genrsa -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key 2048
+# openssl genrsa -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key 2048
 
 # Put instructions here?
 # Note: "Common Name"
 
-openssl req -new -x509 -key /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert -days 1095
+# openssl req -new -x509 -key /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert -days 1095
 
 rm /var/www/latest.tar.gz
 
@@ -191,20 +135,21 @@ rm /var/www/index.html
 
 cat > /var/www/index.html << __INDEXHTML__
 <!DOCTYPE html>
- <html>
-  <body>
-    <h1>
-      $(cat /var/lib/tor/hidden_service/hostname)
-     </h1>
-     <p>
-       <a href="http://$(cat /var/lib/tor/hidden_service/hostname)/wordpress" target="_blank">
-         $(cat /var/lib/tor/hidden_service/hostname)/wordpress
-       </a>
-    </p>
-     <p>
-       XMPP SERVER <username>@$(cat /var/lib/tor/hidden_service/hostname)
-     </p>
-   </body>
+<html>
+ <body>
+  <h1>
+   $(cat /var/lib/tor/hidden_service/hostname)
+  </h1>
+  <p>
+   Wordpress
+   <a href="http://$(cat /var/lib/tor/hidden_service/hostname)/wordpress" target="_blank">
+   $(cat /var/lib/tor/hidden_service/hostname)/wordpress
+   </a>
+  </p>
+  <p>
+   XMPP SERVER @$(cat /var/lib/tor/hidden_service/hostname)
+  </p>
+ </body>
 </html>
 __INDEXHTML__
 
