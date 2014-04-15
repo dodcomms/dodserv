@@ -116,18 +116,83 @@ aptitude install prosody
 
 cd /etc/prosody/
 
-# mv /etc/prosody/prosody.cfg.lua /etc/prosody/prosody.cfg.lua.ORIG
+mv /etc/prosody/prosody.cfg.lua /etc/prosody/prosody.cfg.lua.ORIG
 
-# cat > /etc/prosody/prosody.cfg.lua << __PROSODYCONF__
-#
-# __PROSODYCONF__
+cat > /etc/prosody/prosody.cfg.lua << __PROSODYCONF__
+admins = { "root@$(cat /var/lib/tor/hidden_service/hostname)" }
+modules_enabled = {
+		"roster"; -- Allow users to have a roster. Recommended ;)
+		"saslauth"; -- Authentication for clients and servers. Recommended if you want to log in.
+		"tls"; -- Add support for secure TLS on c2s/s2s connections
+		"dialback"; -- s2s dialback support
+		"disco"; -- Service discovery
+		"private"; -- Private XML storage (for room bookmarks, etc.)
+		"vcard"; -- Allow users to set vCards
+		--"privacy"; -- Support privacy lists
+		--"compression"; -- Stream compression (Debian: requires lua-zlib module to work)
+		"legacyauth"; -- Legacy authentication. Only used by some old clients and bots.
+		"version"; -- Replies to server version requests
+		"uptime"; -- Report how long server has been running
+		"time"; -- Let others know the time here on this server
+		"ping"; -- Replies to XMPP pings with pongs
+		"pep"; -- Enables users to publish their mood, activity, playing music and more
+		"register"; -- Allow users to register on this server using a client and change passwords
+		"adhoc"; -- Support for "ad-hoc commands" that can be executed with an XMPP client
+		"admin_adhoc"; -- Allows administration via an XMPP client that supports ad-hoc commands
+		--"admin_telnet"; -- Opens telnet console interface on localhost port 5582
+		--"bosh"; -- Enable BOSH clients, aka "Jabber over HTTP"
+		--"httpserver"; -- Serve static files from a directory over HTTP
+		--"groups"; -- Shared roster support
+		--"announce"; -- Send announcement to all online users
+		--"welcome"; -- Welcome users who register accounts
+		--"watchregistrations"; -- Alert admins of registrations
+		--"motd"; -- Send a message to users when they log in
+		"posix"; -- POSIX functionality, sends server to background, enables syslog, etc.
+};
 
-# openssl genrsa -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key 2048
+modules_disabled = {
+	-- "presence"; -- Route user/contact status information
+	-- "message"; -- Route messages
+	-- "iq"; -- Route info queries
+	-- "offline"; -- Store offline messages
+};
 
-# Put instructions here?
-# Note: "Common Name"
+allow_registration = true;
 
-# openssl req -new -x509 -key /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert -days 1095
+daemonize = true;
+
+pidfile = "/var/run/prosody/prosody.pid";
+
+ssl = {
+	key = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key";
+	certificate = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert";
+}
+
+c2s_require_encryption = true
+
+authentication = "internal_hashed"
+
+VirtualHost "$(cat /var/lib/tor/hidden_service/hostname)"
+	
+	ssl = {
+		key = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key";
+		certificate = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).crt";
+	}
+
+Component "conference.$(cat /var/lib/tor/hidden_service/hostname)" "muc"
+
+Include "conf.d/*.cfg.lua"
+__PROSODYCONF__
+
+openssl genrsa -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key 2048
+
+openssl req -new -x509 -key /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert -days 1095
+
+openssl x509 -fingerprint -md5 -in /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert
+
+openssl x509 -fingerprint -sha1 -in /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert
+
+/etc/init.d/prosody restart
 
 rm /var/www/latest.tar.gz
 
