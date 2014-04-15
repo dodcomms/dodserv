@@ -99,7 +99,6 @@ read dbpassword
 
 sed -i.bak s/password_here/$dbpassword/g wp-config.php
 
-
 sed -i.bak s/"define('AUTH_KEY',         'put your unique phrase here');"/"define('AUTH_KEY',         '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
 sed -i.bak s/"define('SECURE_AUTH_KEY',  'put your unique phrase here');"/"define('SECURE_AUTH_KEY',  '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
 sed -i.bak s/"define('LOGGED_IN_KEY',    'put your unique phrase here');"/"define('LOGGED_IN_KEY',    '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
@@ -117,31 +116,67 @@ aptitude install prosody
 
 cd /etc/prosody/
 
-cp /etc/prosody/prosody.cfg.lua /etc/prosody/prosody.cfg.lua.ORIG
+mv /etc/prosody/prosody.cfg.lua /etc/prosody/prosody.cfg.lua.ORIG
 
-sed -i.bak s/"admins = { }"/"admins = { "root@$(cat /var/lib/tor/hidden_service/hostname)" }"/g prosody.cfg.lua
+cat > /etc/prosody/prosody.cfg.lua << __PROSODYCONF__
+admins = { "root@$(cat /var/lib/tor/hidden_service/hostname)" }
 
-sed -i.bak s/"allow_registration = false;"/"allow_registration = true;"/g prosody.cfg.lua
+modules_enabled = {
 
-sed -i.bak s/"--c2s_require_encryption = false"/"c2s_require_encryption = true"/g  prosody.cfg.lua
+		"roster"; -- Allow users to have a roster. Recommended ;)
+		"saslauth"; -- Authentication for clients and servers. Recommended if you want to log in.
+		"tls"; -- Add support for secure TLS on c2s/s2s connections
+		"dialback"; -- s2s dialback support
+		"disco"; -- Service discovery
+		"private"; -- Private XML storage (for room bookmarks, etc.)
+		"vcard"; -- Allow users to set vCards
+		--"privacy"; -- Support privacy lists
+		--"compression"; -- Stream compression (Debian: requires lua-zlib module to work)
+		"legacyauth"; -- Legacy authentication. Only used by some old clients and bots.
+		"version"; -- Replies to server version requests
+		"uptime"; -- Report how long server has been running
+		"time"; -- Let others know the time here on this server
+		"ping"; -- Replies to XMPP pings with pongs
+		"pep"; -- Enables users to publish their mood, activity, playing music and more
+		"register"; -- Allow users to register on this server using a client and change passwords
+		"adhoc"; -- Support for "ad-hoc commands" that can be executed with an XMPP client
+		"admin_adhoc"; -- Allows administration via an XMPP client that supports ad-hoc commands
+		"posix"; -- POSIX functionality, sends server to background, enables syslog, etc.
+};
 
-sed -i.bak s/"authentication = "internal_plain""/"authentication = "internal_hashed""/g  prosody.cfg.lua
+modules_disabled = {
+	-- "presence"; -- Route user/contact status information
+	-- "message"; -- Route messages
+	-- "iq"; -- Route info queries
+	-- "offline"; -- Store offline messages
+};
 
-sed -i.bak s/"info = "/var/log/prosody/prosody.log";"/"--info = "/var/log/prosody/prosody.log";"/g  prosody.cfg.lua
+allow_registration = true;
 
-sed -i.bak s/"error = "/var/log/prosody/prosody.err";"/"--error = "/var/log/prosody/prosody.err";"/g  prosody.cfg.lua
+daemonize = true;
 
-sed -i.bak s/"{ levels = { "error" }; to = "syslog";  };"/"--{ levels = { "error" }; to = "syslog";  };"/g  prosody.cfg.lua
+pidfile = "/var/run/prosody/prosody.pid";
 
-sed -i.bak s/"VirtualHost "example.com""/"VirtualHost "$(cat /var/lib/tor/hidden_service/hostname)""/g  prosody.cfg.lua
+ssl = {
+	key = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key";
+	certificate = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert";
+}
 
-sed -i.bak s/"enabled = false -- Remove this line to enable this host"/"disallow_s2s = true"/g  prosody.cfg.lua
+c2s_require_encryption = true
 
-sed -i.bak s/"key = "/etc/prosody/certs/localhost.key";"/"key = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key";"/g prosody.cfg.lua
+authentication = "internal_hashed"
 
-sed -i.bak s/"certificate = "/etc/prosody/certs/localhost.cert";"/"certificate = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).cert";"/g prosody.cfg.lua
+VirtualHost "$(cat /var/lib/tor/hidden_service/hostname)"
 
-sed -i.bak s/"--Component "conference.example.com" "muc""/"Component "conference.$(cat /var/lib/tor/hidden_service/hostname)" "muc""/g  prosody.cfg.lua
+	ssl = {
+		key = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key";
+		certificate = "/etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).crt";
+	}
+
+Component "$(cat /var/lib/tor/hidden_service/hostname)" "muc"
+
+Include "conf.d/*.cfg.lua"
+__PROSODYCONG__
 
 openssl genrsa -out /etc/prosody/certs/$(cat /var/lib/tor/hidden_service/hostname).key 2048
 
