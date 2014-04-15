@@ -15,7 +15,9 @@ echo "Updating System"
 
 aptitude update && aptitude upgrade
 
-echo "Installing Tor"
+echo "******************"
+echo "* Installing Tor *"
+echo "******************"
 
 aptitude install tor
 
@@ -31,23 +33,29 @@ __TORRC__
 
 /etc/init.d/tor restart
 
-echo "Installing Apache2"
+echo "**********************"
+echo "* Installing Apache2 *"
+echo "**********************"
 
 aptitude install apache2 apache2-doc
 
-echo "Installing MySQL"
-
-sleep 5
+echo "********************"
+echo "* Installing MySQL *"
+echo "********************"
 
 aptitude install mysql-server mysql-client
 
-echo "Installing PHP5"
+echo "*******************"
+echo "* Installing PHP5 *"
+echo "*******************"
 
 aptitude install php5 php5-mysql libapache2-mod-php5
 
 /etc/init.d/apache2 restart
 
-echo "Installing Wordpress"
+echo "************************"
+echo "* Installing Wordpress *"
+echo "************************"
 
 cd /var/www/
 
@@ -104,13 +112,14 @@ __INDEXHTML__
 
 rm /var/www/latest.tar.gz
 
-echo "Congratulations!"
+echo "********************"
+echo "* Congratulations! *"
+echo "********************"
 sleep 2
-echo "Now, open a Tor browser"
+echo "In a Tor browser"
 sleep 2
-echo "and visit your hidden service"
+echo "visit your hidden service"
 sleep 2
 echo "**************************"
 echo "* $(cat /var/lib/tor/hidden_service/hostname) *"
 echo "**************************"
-echo ":)"
