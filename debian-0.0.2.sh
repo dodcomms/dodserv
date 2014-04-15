@@ -101,6 +101,16 @@ sed -i.bak s/"define('SECURE_AUTH_SALT', 'put your unique phrase here');"/"defin
 sed -i.bak s/"define('LOGGED_IN_SALT', 'put your unique phrase here');"/"define('LOGGED_IN_SALT', '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
 sed -i.bak s/"define('NONCE_SALT', 'put your unique phrase here');"/"define('NONCE_SALT', '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
 
+echo "***************"
+echo "* Cleaning up *"
+echo "***************"
+
+rm /var/www/latest.tar.gz
+
+echo "*********************"
+echo "* Creating Homepage *"
+echo "*********************"
+
 rm /var/www/index.html
 
 cat > /var/www/index.html << __INDEXHTML__
@@ -118,8 +128,6 @@ $(cat /var/lib/tor/hidden_service/hostname)/wordpress
 </body>
 </html>
 __INDEXHTML__
-
-rm /var/www/latest.tar.gz
 
 echo "********************"
 echo "* Congratulations! *"
