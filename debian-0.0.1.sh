@@ -11,7 +11,9 @@ echo "**********************"
 
 sleep 5
 
-echo "Updating System"
+echo "*******************"
+echo "* Updating System *"
+echo "*******************"
 
 aptitude update && aptitude upgrade
 
