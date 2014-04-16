@@ -2,8 +2,10 @@
 #
 # Installs:
 # Tor Hidden Service
+# LAMP
 # SSH (Port 22)
 # CMS - Wordpress (Port 80)
+# Wiki - Mediawiki (Port 80)
 # Forum - Simple Machines (Port 80)
 # Jabber/XMPP - ejabberd (Port 5222)
 #
@@ -44,7 +46,8 @@ echo '        \/\/         \/           \/      \/          '
 
 sleep 3
 
-aptitude update && aptitude upgrade
+aptitude update
+aptitude upgrade
 
 echo '___________           '
 echo '\__    ___/__________ '
@@ -78,7 +81,7 @@ echo '        \/|__|        \/     \/        \/        \/       \/  '
 
 sleep 3
 
-aptitude install openssh-server
+usewithtor aptitude install openssh-server
 
 echo '   _____                      .__           ________  '
 echo '  /  _  \ ___________    ____ |  |__   ____ \_____  \ '
@@ -89,7 +92,7 @@ echo '        \/|__|       \/     \/     \/     \/        \/'
 
 sleep 3
 
-aptitude install apache2 apache2-doc
+usewithtor aptitude install apache2 apache2-doc
 
 echo '   _____          _________________  .____     '
 echo '  /     \ ___.__./   _____/\_____  \ |    |    '
@@ -100,7 +103,7 @@ echo '        \/\/            \/        \__>       \/'
 
 sleep 3
 
-aptitude install mysql-server mysql-client
+usewithtor aptitude install mysql-server mysql-client
 
 echo '__________  ___ _____________.________'
 echo '\______   \/   |   \______   \   ____/'
@@ -111,7 +114,7 @@ echo '                 \/                \/ '
 
 sleep 3
 
-aptitude install php5 php5-mysql libapache2-mod-php5
+usewithtor aptitude install php5 php5-mysql libapache2-mod-php5
 
 /etc/init.d/apache2 restart
 
@@ -126,7 +129,7 @@ sleep 3
 
 cd /var/www/
 
-wget https://wordpress.org/latest.tar.gz
+usewithtor wget https://wordpress.org/latest.tar.gz
 
 tar -xzvf latest.tar.gz
 
@@ -159,6 +162,33 @@ sed -i.bak s/"define('NONCE_SALT',       'put your unique phrase here');"/"defin
 
 rm /var/www/latest.tar.gz
 
+echo ' __      __.__ __   .__ '
+echo '/  \    /  \__|  | _|__|'
+echo '\   \/\/   /  |  |/ /  |'
+echo ' \        /|  |    <|  |'
+echo '  \__/\  / |__|__|_ \__|'
+echo '       \/          \/   '
+
+sleep 3
+
+mkdir /var/www/wiki
+
+cd /var/www/
+
+# 1.22.5 was the latest in Aril 2014
+
+usewithtor wget http://releases.wikimedia.org/mediawiki/1.22/mediawiki-1.22.5.tar.gz
+
+tar -xzvf mediawiki-*.tar.gz
+
+mv mediawiki-* wiki
+
+rm mediawiki-*.tar.gz
+
+# scp LocalSettings.php to /var/www/wiki
+# make a note of this in the tutorial
+# requires: usewithtor scp /home/user/Downloads/LocalSettings.php root@n5ikk2nblppiigh6.onion:/var/www/wiki/wiki/
+
 echo '___________                         '
 echo '\_   _____/__________ __ __  _____  '
 echo ' |    __)/  _ \_  __ \  |  \/     \ '
@@ -174,12 +204,14 @@ cd /var/www/forum
 
 # 2-0-7 was the latest in Aril 2014
 
-wget http://download.simplemachines.org/index.php/smf_2-0-7_install.tar.gz
+usewithtor wget http://download.simplemachines.org/index.php/smf_2-0-7_install.tar.gz
 
-tar -xzvf smf_2-0-7_install.tar.gz
+tar -xzvf smf_*_install.tar.gz
 
 # rm /var/www/forum/install.php
 # make a note of this in the tutorial
+# requires: usewithtor ssh root@n5ikk2nblppiigh6.onion
+# rm /var/www/forum/install.php
 
 echo '     ____.     ___.  ___.                 '
 echo '    |    |____ \_ |__\_ |__   ___________ '
@@ -195,7 +227,7 @@ echo '      \_/       \/                        '
 
 sleep 3
 
-aptitude install ejabberd
+usewithtor aptitude install ejabberd
 
 mv /etc/ejabberd/ejabberd.cfg /etc/ejabberd/ejabberd.cfg.ORIG
 
@@ -352,6 +384,12 @@ cat > /var/www/index.html << __INDEXHTML__
    $(cat /var/lib/tor/hidden_service/hostname)/wordpress
    </a>
   </p>
+   <p>
+   Wiki
+   <a href="http://$(cat /var/lib/tor/hidden_service/hostname)/wiki" target="_blank">
+   $(cat /var/lib/tor/hidden_service/hostname)/wiki
+   </a>
+  </p>
   <p>
    Forum
    <a href="http://$(cat /var/lib/tor/hidden_service/hostname)/forum" target="_blank">
@@ -359,7 +397,10 @@ cat > /var/www/index.html << __INDEXHTML__
    </a>
   </p>
   <p>
-   Jabber/XMPP Server @$(cat /var/lib/tor/hidden_service/hostname)
+   Jabber/XMPP Server $(cat /var/lib/tor/hidden_service/hostname)
+  </p>
+   <p>
+   SSH $(cat /var/lib/tor/hidden_service/hostname)
   </p>
  </body>
 </html>
