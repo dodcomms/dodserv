@@ -330,7 +330,7 @@ cat > /var/www/index.html << __INDEXHTML__
    </a>
   </p>
   <p>
-   XMPP SERVER @$(cat /var/lib/tor/hidden_service/hostname)
+   Jabber/XMPP Server @$(cat /var/lib/tor/hidden_service/hostname)
   </p>
  </body>
 </html>
