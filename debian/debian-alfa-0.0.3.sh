@@ -157,6 +157,30 @@ sed -i.bak s/"define('SECURE_AUTH_SALT', 'put your unique phrase here');"/"defin
 sed -i.bak s/"define('LOGGED_IN_SALT',   'put your unique phrase here');"/"define('LOGGED_IN_SALT',   '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
 sed -i.bak s/"define('NONCE_SALT',       'put your unique phrase here');"/"define('NONCE_SALT',       '"$(date +%s%N | sha256sum | base64 | head -c 64)"');"/g wp-config.php
 
+rm /var/www/latest.tar.gz
+
+echo '___________                         '
+echo '\_   _____/__________ __ __  _____  '
+echo ' |    __)/  _ \_  __ \  |  \/     \ '
+echo ' |     \(  <_> )  | \/  |  /  Y Y  \'
+echo ' \___  / \____/|__|  |____/|__|_|  /'
+echo '     \/                          \/ '
+
+sleep 3
+
+mkdir /var/www/forum
+
+cd /var/www/forum
+
+# 2-0-7 was the latest in Aril 2014
+
+wget http://download.simplemachines.org/index.php/smf_2-0-7_install.tar.gz
+
+tar -xzvf smf_2-0-7_install.tar.gz
+
+# rm /var/www/forum/install.php
+# make a note of this in the tutorial
+
 echo '     ____.     ___.  ___.                 '
 echo '    |    |____ \_ |__\_ |__   ___________ '
 echo '    |    \__  \ | __ \| __ \_/ __ \_  __ \'
@@ -312,8 +336,6 @@ cat > /etc/ejabberd/ejabberd.cfg << __EJABBERD__
 __EJABBERD__
 
 /etc/init.d/ejabberd restart
-
-rm /var/www/latest.tar.gz
 
 rm /var/www/index.html
 
