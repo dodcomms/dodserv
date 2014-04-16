@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# Install
+# Installs:
 # Tor Hidden Service
 # SSH (Port 22)
 # CMS - Wordpress (Port 80)
-# Forum -Simple Machines (Port 80)
+# Forum - Simple Machines (Port 80)
 # Jabber/XMPP - ejabberd (Port 5222)
 #
 # http://patorjk.com/software/taag/#p=display&h=2&v=2&f=Graffiti&t=DIY%20or%20DIE
@@ -350,6 +350,12 @@ cat > /var/www/index.html << __INDEXHTML__
    Wordpress
    <a href="http://$(cat /var/lib/tor/hidden_service/hostname)/wordpress" target="_blank">
    $(cat /var/lib/tor/hidden_service/hostname)/wordpress
+   </a>
+  </p>
+  <p>
+   Forum
+   <a href="http://$(cat /var/lib/tor/hidden_service/hostname)/forum" target="_blank">
+   $(cat /var/lib/tor/hidden_service/hostname)/forum
    </a>
   </p>
   <p>
