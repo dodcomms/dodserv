@@ -286,9 +286,9 @@ cat > /etc/ejabberd/ejabberd.cfg << __EJABBERD__
 		  %% a message with this subject and body.
 		  %%
 		  {welcome_message, {"Welcome!",
-				     "Welcome to a Jabber service powered by Debian. "
-				     "For information about Jabber visit "
-				     "http://www.jabber.org"}},
+				     "Welcome to the $(cat /var/lib/tor/hidden_service/hostname) Jabber/XMPP server."
+				     "For information visit: "
+				     "http://$(cat /var/lib/tor/hidden_service/hostname)"}},
 		  %% Replace it with 'none' if you don't want to send such message:
 		  %%{welcome_message, none},
 
@@ -320,24 +320,6 @@ cat > /var/www/index.html << __INDEXHTML__
 <!DOCTYPE html>
 <html>
  <body>
-<pre>
-________  .________.___.                ________  .______________
-\______ \ |   \__  |   |   ___________  \______ \ |   \_   _____/
- |    |  \|   |/   |   |  /  _ \_  __ \  |    |  \|   ||    __)_ 
- |    `   \   |\____   | (  <_> )  | \/  |    `   \   ||        \
-/_______  /___|/ ______|  \____/|__|    /_______  /___/_______  /
-________\/     \/                               \/            \/ 
-\_   ___ \  ____   _____   _____   ______                        
-/    \  \/ /  _ \ /     \ /     \ /  ___/                        
-\     \___(  <_> )  Y Y  \  Y Y  \\___ \                         
- \______  /\____/|__|_|  /__|_|  /____  >                        
-  ______\/_            \/      \/     \/                         
- /   _____/ ______________  __ ___________                       
- \_____  \_/ __ \_  __ \  \/ // __ \_  __ \                      
- /        \  ___/|  | \/\   /\  ___/|  | \/                      
-/_______  /\___  >__|    \_/  \___  >__|                         
-        \/     \/                 \/                             
-</pre>
   <h1>
    $(cat /var/lib/tor/hidden_service/hostname)
   </h1>
@@ -354,12 +336,12 @@ ________\/     \/                               \/            \/
 </html>
 __INDEXHTML__
 
-echo   ________     ___________     
-echo  /  _____/  ___\__    ___/___  
-echo /   \  ___ /  _ \|    | /  _ \ 
-echo \    \_\  (  <_> )    |(  <_> )
-echo  \______  /\____/|____| \____/ 
-echo         \/                     
+echo   ________           __          
+echo  /  _____/  ____   _/  |_  ____  
+echo /   \  ___ /  _ \  \   __\/  _ \ 
+echo \    \_\  (  <_> )  |  | (  <_> )
+echo  \______  /\____/   |__|  \____/ 
+echo         \/                       
 
 sleep 3
 
@@ -373,9 +355,9 @@ echo "###################################"
 
 sleep 3
 
-echo ___________ __    ____   ____    .__.__    __    ._.
-echo \_   _____//  |_  \   \ /   /___ |__|  | __\/_   | |
-echo  |    __)_\   __\  \   Y   /  _ \|  |  | \__  \  | |
-echo  |        \|  |     \     (  <_> )  |  |__/ __ \_ \|
-echo /_______  /|__|      \___/ \____/|__|____(____  / __
-echo         \/                                    \/  \/
+echo __________ __    ____   ____    .__.__    __    ._.
+echo _   _____//  |_  \   \ /   /___ |__|  | __\/_   | |
+echo |    __)_\   __\  \   Y   /  _ \|  |  | \__  \  | |
+echo |        \|  |     \     (  <_> )  |  |__/ __ \_ \|
+echo _______  /|__|      \___/ \____/|__|____(____  / __
+echo        \/                                    \/  \/
