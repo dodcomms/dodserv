@@ -289,7 +289,7 @@ cat > /etc/ejabberd/ejabberd.cfg << __EJABBERD__
 				     "Welcome to the $(cat /var/lib/tor/hidden_service/hostname) Jabber/XMPP server."
 				     "For information visit: "
 				     "http://$(cat /var/lib/tor/hidden_service/hostname)"}},
-		  %% Replace it with 'none' if you don't want to send such message:
+		  %% Replace it with 'none' if you dont want to send such message:
 		  %%{welcome_message, none},
 
 		  %%
@@ -336,12 +336,12 @@ cat > /var/www/index.html << __INDEXHTML__
 </html>
 __INDEXHTML__
 
-echo   ________           __          
-echo  /  _____/  ____   _/  |_  ____  
-echo /   \  ___ /  _ \  \   __\/  _ \ 
-echo \    \_\  (  <_> )  |  | (  <_> )
-echo  \______  /\____/   |__|  \____/ 
-echo         \/                       
+echo '  ________           __          '
+echo ' /  _____/  ____   _/  |_  ____  '
+echo '/   \  ___ /  _ \  \   __\/  _ \ '
+echo '\    \_\  (  <_> )  |  | (  <_> )'
+echo ' \______  /\____/   |__|  \____/ '
+echo '        \/                       '
 
 sleep 3
 
@@ -355,9 +355,9 @@ echo "###################################"
 
 sleep 3
 
-echo __________ __    ____   ____    .__.__    __    ._.
-echo _   _____//  |_  \   \ /   /___ |__|  | __\/_   | |
-echo |    __)_\   __\  \   Y   /  _ \|  |  | \__  \  | |
-echo |        \|  |     \     (  <_> )  |  |__/ __ \_ \|
-echo _______  /|__|      \___/ \____/|__|____(____  / __
-echo        \/                                    \/  \/
+echo '__________ __    ____   ____    .__.__    __    ._.'
+echo '_   _____//  |_  \   \ /   /___ |__|  | __\/_   | |'
+echo '|    __)_\   __\  \   Y   /  _ \|  |  | \__  \  | |'
+echo '|        \|  |     \     (  <_> )  |  |__/ __ \_ \|'
+echo '_______  /|__|      \___/ \____/|__|____(____  / __'
+echo '       \/                                    \/  \/'
