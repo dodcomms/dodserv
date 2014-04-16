@@ -171,19 +171,17 @@ echo '       \/          \/   '
 
 sleep 3
 
-mkdir /var/www/wiki
-
 cd /var/www/
 
 # 1.22.5 was the latest in Aril 2014
 
 usewithtor wget http://releases.wikimedia.org/mediawiki/1.22/mediawiki-1.22.5.tar.gz
 
-tar -xzvf mediawiki-*.tar.gz
+tar -xzvf mediawiki-1.22.5.tar.gz
 
-mv mediawiki-* wiki
+mv mediawiki-1.22.5 wiki
 
-rm mediawiki-*.tar.gz
+rm mediawiki-1.22.5.tar.gz
 
 # scp LocalSettings.php to /var/www/wiki
 # make a note of this in the tutorial
@@ -206,7 +204,7 @@ cd /var/www/forum
 
 usewithtor wget http://download.simplemachines.org/index.php/smf_2-0-7_install.tar.gz
 
-tar -xzvf smf_*_install.tar.gz
+tar -xzvf smf_2-0-7_install.tar.gz
 
 # rm /var/www/forum/install.php
 # make a note of this in the tutorial
