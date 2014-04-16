@@ -234,10 +234,10 @@ cat > /etc/ejabberd/ejabberd.cfg << __EJABBERD__
 %% Options which are set by Debconf and managed by ucf
 
 %% Admin user
-{acl, admin, {user, "", "localhost"}}.
+{acl, admin, {user, "admin", "$(cat /var/lib/tor/hidden_service/hostname)"}}.
 
 %% Hostname
-{hosts, ["localhost"]}.
+{hosts, ["localhost","$(cat /var/lib/tor/hidden_service/hostname)"]}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -254,7 +254,7 @@ cat > /etc/ejabberd/ejabberd.cfg << __EJABBERD__
 %% 4: Info
 %% 5: Debug
 %%
-{loglevel, 4}.
+{loglevel, 0}.
 
 %%
 %% watchdog_admins: If an ejabberd process consumes too much memory,
@@ -310,10 +310,10 @@ cat > /etc/ejabberd/ejabberd.cfg << __EJABBERD__
   %%			tls, {certfile, "/etc/ejabberd/ejabberd.pem"}
   %%		       ]},
 
-  {5269, ejabberd_s2s_in, [
-			   {shaper, s2s_shaper},
-			   {max_stanza_size, 131072}
-			  ]},
+  %%{5269, ejabberd_s2s_in, [
+  %%			   {shaper, s2s_shaper},
+  %%			   {max_stanza_size, 131072}
+  %%			  ]},
 
   %% External MUC jabber-muc
   %%{5554, ejabberd_service, [
@@ -672,7 +672,7 @@ cat > /etc/ejabberd/ejabberd.cfg << __EJABBERD__
 % (note that if you remove mod_register from modules list then users will not
 % be able to change their password as well as register).
 % This setting is default because it's more safe.
-{access, register, [{deny, all}]}.
+{access, register, [{allow, all}]}.
 
 %% By default frequency of account registrations from the same IP
 %% is limited to 1 account every 10 minutes. To disable put: infinity
@@ -822,6 +822,8 @@ cat > /etc/ejabberd/ejabberd.cfg << __EJABBERD__
 %%% End:
 %%% vim: set filetype=erlang tabstop=8:
 __EJABBERD__
+
+/etc/init.d/ejabberd restart
 
 rm /var/www/latest.tar.gz
 
