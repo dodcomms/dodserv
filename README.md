@@ -94,6 +94,23 @@ File Name to Write: /etc/apt/sources.list
 ```
 root@debian:~# _
 ```
+At the prompt, enter `aptitude install tor unzip`
+```
+root@debian:~# aptitude install tor unzip
+```
+Type `Y` to continue
+```
+Do you want to continue? [Y/n/?] y
+```
+At the prompt, enter `usewithtor wget https://github.com/dodcomms/dodserv/archive/master.zip`
+```
+root@debian:~# usewithtor wget https://github.com/dodcomms/dodserv/archive/master.zip
+```
+At the prompt, enter `unzip master.zip`
+```
+root@debian:~# unzip master.zip
+```
+
 
 ## References
 
