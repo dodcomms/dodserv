@@ -60,11 +60,9 @@ root@debian:~# nano /etc/apt/sources.list
 ```
 *Something like this will appear*
 ```
-# 
+# deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 20140208-12:26]/ wheezy contrib main
 
-# deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 20140$
-
-deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 2014020$
+deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 20140208-12:26]/ wheezy contrib main
 
 deb http://ftp.uk.debian.org/debian/ wheezy main
 deb-src http://ftp.uk.debian.org/debian/ wheezy main
@@ -76,11 +74,13 @@ deb-src http://security.debian.org/ wheezy/updates main contrib
 deb http://ftp.uk.debian.org/debian/ wheezy-updates main contrib
 deb-src http://ftp.uk.debian.org/debian/ wheezy-updates main contrib
 ```
-Use the `arrow keys` to navigate the text and put a `#` before all the `deb cdrom:` lines, so it looks like this
-```
-# deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 20140$
+Use the `arrow keys` to navigate the text
 
-# deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 2014020$
+Put a `#` before the lines begining with `deb cdrom:`, so they look like this
+```
+# deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 20140208-12:26]/ wheezy contrib main
+
+# deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 20140208-12:26]/ wheezy contrib main
 ```
 
 ## References
