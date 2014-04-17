@@ -37,13 +37,25 @@ use the format here http://www.raspberrypi.org/help/quick-start-guide/
 
 ### Debian Installation
 
-Boot debian and login as root
+Boot Debian
+
+
+```
+Debian GNU/Linux 7 debian tty1
+debian login:
+```
+
+Login as `root`
+
+*Note you will not see any writing appear when you type the password*
 
 ```
 Debian GNU/Linux 7 debian tty1
 debian login: root
 Password:
+```
 
+```
 Linux debian 3.2.0-4-486 #1 Debian 3.2.54-2 i686
 
 The programs included with the Debian GNU/Linux system are free software;
@@ -54,7 +66,6 @@ Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 Last login: Thu Apr 17 16:18:48 2014
 root@debian:~# _
-
 ```
 
 
