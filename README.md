@@ -1,6 +1,6 @@
 # DIY or DIE Server
 
-Private collaboration, communication and information sharing infrastructure for groups engaged in political activism.
+### Private collaboration, communication and information sharing infrastructure for groups engaged in political activism.
 
 The DIY or DIE Server is self-hosted on a normal computer, USB stick or SD card and behind a Tor hidden services [1].
 
