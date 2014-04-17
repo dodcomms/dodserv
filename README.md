@@ -1,23 +1,20 @@
-DIY or DIE Server
-==
+# DIY or DIE Server
 
-The DIY or DIE Server provides private group collaboration, communication and data sharing infrastructure for groups engaged in political activism.
+Private collaboration, communication and information sharing infrastructure for groups engaged in political activism.
 
-The DIY or DIE Server uses free and open source software such as chat servers, forums, web sites and wikis) 
+The DIY or DIE Server is self-hosted on a normal computer, USB stick or SD card and behind a Tor hidden services [1].
 
-self-hosted services behind Tor hidden services  
+Tor hidden services allow people and groups to improve their privacy and security with encrypted communication tools that are resistant to surveillance and censorship.
 
+The DIY or DIE Server uses free and open source operating systems, chat servers, forums, web sites and wikis
 
+## References
 
-Based on the Debian OS 
-
-References
---------
 1.  An [example](http://url.com/ "Title")
 
 
-External links
---------
+## External links
+
 *   [Debian.org](http://www.debian.org/ "Debian.org") - a free operating system (OS)
 
 *   An [example](http://url.com/ "Title")
