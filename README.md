@@ -19,7 +19,7 @@
 ## References
 
 1. [Tor: Hidden Service Protocol](https://www.torproject.org/docs/hidden-services.html.en "Hidden Service Protocol")
-2. [unlicense.org](http://unlicense.org/ "unlicense.org")
+2. [Unlicense Yourself](http://unlicense.org/ "unlicense.org") - Set Your Code Free
 
 ## External links
 
