@@ -14,7 +14,15 @@
 ### The DIY or DIE Server allows:
 
 * activists to share information over public networks without compromising their privacy or security
-* activists to communicate with each other without any third party being wise to their activity or even the knowledge that they are communicating with each other
+* activists to communicate with each other without any third party being wise to their activity or even the knowledge that they are communicating with each other 
+
+## Install DIY or DIE Server
+
+### Debian Installation
+
+root@debian:~#
+
+
 
 ## References
 
