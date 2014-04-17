@@ -9,19 +9,14 @@
 # Forum - Simple Machines (Port 80)
 # Jabber/XMPP - ejabberd (Port 5222)
 #
-# http://patorjk.com/software/taag/#p=display&h=2&v=2&f=Graffiti&t=DIY%20or%20DIE
+# ASCII Art from: http://patorjk.com/software/taag/#p=display&h=2&v=2&f=Graffiti&t=DIY%20or%20DIE%0AServer
 
 echo '________  .________.___.                ________  .______________'
 echo '\______ \ |   \__  |   |   ___________  \______ \ |   \_   _____/'
 echo ' |    |  \|   |/   |   |  /  _ \_  __ \  |    |  \|   ||    __)_ '
 echo ' |    `   \   |\____   | (  <_> )  | \/  |    `   \   ||        \'
 echo '/_______  /___|/ ______|  \____/|__|    /_______  /___/_______  /'
-echo '________\/     \/                               \/            \/ '
-echo '\_   ___ \  ____   _____   _____   ______                        '
-echo '/    \  \/ /  _ \ /     \ /     \ /  ___/                        '
-echo '\     \___(  <_> )  Y Y  \  Y Y  \\___ \                         '
-echo ' \______  /\____/|__|_|  /__|_|  /____  >                        '
-echo '  ______\/_            \/      \/     \/                         '
+echo '  ______\/_    \/                               \/            \/ '
 echo ' /   _____/ ______________  __ ___________                       '
 echo ' \_____  \_/ __ \_  __ \  \/ // __ \_  __ \                      '
 echo ' /        \  ___/|  | \/\   /\  ___/|  | \/                      '
