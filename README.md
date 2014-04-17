@@ -138,7 +138,43 @@ PING torproject.org (93.95.227.222) 56(84) bytes of data.
 Do you want to continue? [Y/n/?]
 ```
 Type `Y` to continue
-*Something like this may appear*
+
+During the MySQL installation, a blue screen will appear and ask for a `New password for the MySQL "root" user`
+
+```
+  ┌────────────────────┤ Configuring mysql-server-5.5 ├─────────────────────┐   
+  │ While not mandatory, it is highly recommended that you set a password   │   
+  │ for the MySQL administrative "root" user.                               │   
+  │                                                                         │   
+  │ If this field is left blank, the password will not be changed.          │   
+  │                                                                         │   
+  │ New password for the MySQL "root" user:                                 │   
+  │                                                                         │   
+  │ _______________________________________________________________________ │   
+  │                                                                         │   
+  │                                 <Ok>                                    │   
+  │                                                                         │   
+  └─────────────────────────────────────────────────────────────────────────┘   
+```
+Carefully enter a password, press `Tab` to navigate to `<Ok>` and press `Enter` to continue
+
+```
+                ┌──────┤ Configuring mysql-server-5.5 ├───────┐                 
+                │                                             │                 
+                │                                             │                 
+                │ Repeat password for the MySQL "root" user:  │                 
+                │                                             │                 
+                │ ___________________________________________ │                 
+                │                                             │                 
+                │                   <Ok>                      │                 
+                │                                             │                 
+                └─────────────────────────────────────────────┘                 
+```
+Carefully repeat the password, press `Tab` to navigate to `<Ok>` and press `Enter` to continue
+
+* Remember your `MySQL "root" user password`, you will need it in a moment
+
+During the PHP5 installation, something like this may appear
 ```
 Accept this solution [Y/n/q/?]
 ```
