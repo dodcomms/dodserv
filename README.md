@@ -117,6 +117,9 @@ root@debian:~# chmod 744 dodserv-master/deb*.sh
 At the prompt, enter `dodserv-master/deb-latest.sh`
 ```
 root@debian:~# dodserv-master/deb-latest.sh
+```
+*Something like this will appear*
+```
 ________  .________.___.                ________  .______________
 \______ \ |   \__  |   |   ___________  \______ \ |   \_   _____/
  |    |  \|   |/   |   |  /  _ \_  __ \  |    |  \|   ||    __)_ 
@@ -130,8 +133,11 @@ ________  .________.___.                ________  .______________
         \/     \/                 \/                             
 PING torproject.org (93.95.227.222) 56(84) bytes of data.
 ```
-
-
+Text will scroll until something like this appears
+```
+Do you want to continue? [Y/n/?] y
+```
+Type `Y` to continue
 
 ## References
 
