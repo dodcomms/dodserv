@@ -37,6 +37,8 @@ use the format here http://www.raspberrypi.org/help/quick-start-guide/
 
 ### Debian Installation
 
+Boot debian and login as root
+
 ```
 Debian GNU/Linux 7 debian tty1
 debian login: root
@@ -51,10 +53,9 @@ individual files in /usr/share/doc/*/copyright.
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 Last login: Thu Apr 17 16:18:48 2014
-root@debian:~# 
+root@debian:~# _
 
 ```
-
 
 
 ## References
