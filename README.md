@@ -38,31 +38,49 @@ use the format here http://www.raspberrypi.org/help/quick-start-guide/
 ### Debian Installation
 
 Boot Debian and wait for the login prompt
-
 ```
 Debian GNU/Linux 7 debian tty1
 debian login:
 ```
-
 Login as `root`
 
-*Note you will not see anything appear when you type the password*
-
+*You will not see anything appear when you type the password*
 ```
 Debian GNU/Linux 7 debian tty1
 debian login: root
 Password:
 ```
-
 Wait for the command line prompt
-
 ```
 root@debian:~# _
 ```
 At the prompt, enter `nano /etc/apt/sources.list`
-
 ```
 root@debian:~# nano /etc/apt/sources.list
+```
+*Something like this will appear*
+```
+# 
+
+# deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 20140$
+
+deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 2014020$
+
+deb http://ftp.uk.debian.org/debian/ wheezy main
+deb-src http://ftp.uk.debian.org/debian/ wheezy main
+
+deb http://security.debian.org/ wheezy/updates main contrib
+deb-src http://security.debian.org/ wheezy/updates main contrib
+
+# wheezy-updates, previously known as 'volatile'
+deb http://ftp.uk.debian.org/debian/ wheezy-updates main contrib
+deb-src http://ftp.uk.debian.org/debian/ wheezy-updates main contrib
+```
+Use the `arrow keys` to navigate the text and put a `#` before all the `deb cdrom:` lines, so it looks like this
+```
+# deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 20140$
+
+# deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 2014020$
 ```
 
 ## References
