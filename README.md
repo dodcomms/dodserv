@@ -133,9 +133,14 @@ ________  .________.___.                ________  .______________
         \/     \/                 \/                             
 PING torproject.org (93.95.227.222) 56(84) bytes of data.
 ```
-Text will scroll until something like this appears
+*Text will scroll until something like this appears (several times)*
 ```
-Do you want to continue? [Y/n/?] y
+Do you want to continue? [Y/n/?]
+```
+Type `Y` to continue
+*Something like this may appear*
+```
+Accept this solution [Y/n/q/?]
 ```
 Type `Y` to continue
 
