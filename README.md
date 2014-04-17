@@ -20,7 +20,12 @@
 
 ### Debian Installation
 
-root@debian:~#
+```
+debian login: root
+Password:
+
+root@debian:~# _
+```
 
 
 
