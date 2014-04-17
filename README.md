@@ -1,6 +1,6 @@
 # DIY or DIE Server
 
-###### Self-hosted collaboration, communication and information sharing infrastructure for activists
+##### Self-hosted collaboration, communication and information sharing infrastructure for activists
 
 ### The DIY or DIE Server is:
 
