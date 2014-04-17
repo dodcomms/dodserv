@@ -16,6 +16,21 @@
 * activists to share information over public networks without compromising their privacy or security
 * activists to communicate with each other without any third party being wise to their activity or even the knowledge that they are communicating with each other 
 
+## What you will need
+
+### Required
+
+* Computer
+* Display and connectivity cables
+* Keyboard
+* Power supply
+* Internet connection
+
+### Not essential but helpful to have
+
+* USB Stick
+* SD Card
+
 ## Install DIY or DIE Server
 
 ### Debian Installation
