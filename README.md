@@ -46,7 +46,7 @@ debian login:
 
 Login as `root`
 
-*Note you will not see any writing appear when you type the password*
+*Note you will not see anything appear when you type the password*
 
 ```
 Debian GNU/Linux 7 debian tty1
@@ -59,7 +59,11 @@ Wait for the command line prompt
 ```
 root@debian:~# _
 ```
+At the prompt, enter `nano /etc/apt/sources.list`
 
+```
+root@debian:~# nano /etc/apt/sources.list
+```
 
 ## References
 
