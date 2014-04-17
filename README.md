@@ -110,6 +110,27 @@ At the prompt, enter `unzip master.zip`
 ```
 root@debian:~# unzip master.zip
 ```
+At the prompt, enter `chmod 744 dodserv-master/deb*.sh`
+```
+root@debian:~# chmod 744 dodserv-master/deb*.sh
+```
+At the prompt, enter `dodserv-master/deb-latest.sh`
+```
+root@debian:~# dodserv-master/deb-latest.sh
+________  .________.___.                ________  .______________
+\______ \ |   \__  |   |   ___________  \______ \ |   \_   _____/
+ |    |  \|   |/   |   |  /  _ \_  __ \  |    |  \|   ||    __)_ 
+ |    `   \   |\____   | (  <_> )  | \/  |    `   \   ||        \
+/_______  /___|/ ______|  \____/|__|    /_______  /___/_______  /
+  ______\/_    \/                               \/            \/ 
+ /   _____/ ______________  __ ___________                       
+ \_____  \_/ __ \_  __ \  \/ // __ \_  __ \                      
+ /        \  ___/|  | \/\   /\  ___/|  | \/                      
+/_______  /\___  >__|    \_/  \___  >__|                         
+        \/     \/                 \/                             
+PING torproject.org (93.95.227.222) 56(84) bytes of data.
+```
+
 
 
 ## References
