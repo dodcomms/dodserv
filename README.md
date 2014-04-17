@@ -76,11 +76,23 @@ deb-src http://ftp.uk.debian.org/debian/ wheezy-updates main contrib
 ```
 Use the `arrow keys` to navigate the text
 
-Put a `#` before the lines begining with `deb cdrom:`, so they look like this
+Put a `#` before the lines begining with `deb cdrom:` so they look like this
 ```
 # deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 20140208-12:26]/ wheezy contrib main
 
 # deb cdrom:[Debian GNU/Linux 7.4.0 _Wheezy_ - Official i386 DVD Binary-1 20140208-12:26]/ wheezy contrib main
+```
+Use `^Ctrl`+`X` (Control-X) to Exit
+```
+Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?  
+```
+`Y` to Save 
+```
+File Name to Write: /etc/apt/sources.list
+```
+And `Enter` (Return Key) to return to the command line prompt
+```
+root@debian:~# _
 ```
 
 ## References
