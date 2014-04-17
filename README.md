@@ -176,7 +176,28 @@ Carefully repeat the password, press `Tab` to navigate to `<Ok>` and press `Ente
 
 During the PHP5 installation, something like this may appear
 ```
-Accept this solution [Y/n/q/?]
+__________  ___ _____________.________
+\______   \/   |   \______   \   ____/
+ |     ___/    ~    \     ___/____  \ 
+ |    |   \    Y    /    |   /       \
+ |____|    \___|_  /|____|  /______  /
+                 \/                \/ 
+The following NEW packages will be installed:
+  apache2-mpm-prefork{ab} libapache2-mod-php5 libonig2{a} libqdbm14{a} php5 
+  php5-cli{a} php5-common{a} php5-mysql 
+0 packages upgraded, 8 newly installed, 0 to remove and 0 not upgraded.
+Need to get 6,174 kB of archives. After unpacking 18.1 MB will be used.
+The following packages have unmet dependencies:
+ apache2-mpm-prefork : Conflicts: apache2-mpm which is a virtual package.
+ apache2-mpm-worker : Conflicts: apache2-mpm which is a virtual package.
+The following actions will resolve these dependencies:
+
+     Remove the following packages:
+1)     apache2-mpm-worker          
+
+
+
+Accept this solution? [Y/n/q/?] 
 ```
 Type `Y` to continue
 
