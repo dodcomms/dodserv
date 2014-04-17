@@ -1,6 +1,6 @@
 # DIY or DIE Server
 
-#### Private collaboration, communication and information sharing infrastructure for groups engaged in political activism.
+#### Private collaboration, communication and information sharing infrastructure for groups engaged in political activism
 
 ## The DIY or DIE Server is:
 
@@ -10,7 +10,8 @@
 * resistant to surveillance and censorship
 * easy to install and maintain
 
-allowing groups to improve their privacy and security with encrypted communication tools that are resistant to surveillance and censorship in threat models where cloud hosting is not suitable.
+##### The DIY or DIE Server allows activists to share information over public networks without compromising their privacy
+
 
 ## References
 
