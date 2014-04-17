@@ -18,6 +18,8 @@
 
 ## What you will need
 
+use the format here http://www.raspberrypi.org/help/quick-start-guide/
+
 ### Required
 
 * Computer
