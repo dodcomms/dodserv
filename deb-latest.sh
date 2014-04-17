@@ -132,7 +132,11 @@ tar -xzvf latest.tar.gz
 
 cd /var/www/wordpress/
 
-echo "MySQL root user"
+echo "#####################"
+echo "#                   #"
+echo "# MySQL "root" user #"
+echo "#                   #"
+echo "#####################"
 
 mysql -u root -p -e "create database wordpress;"
 
