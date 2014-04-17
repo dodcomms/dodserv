@@ -8,6 +8,7 @@
 * a collection of free and open source operating systems, chat servers, forums, web sites and wikis
 * self-hosted (on a normal computer, USB stick or SD card) behind Tor hidden services [1](https://www.torproject.org/docs/hidden-services.html.en "Hidden Service Protocol")
 * resistant to surveillance and censorship
+* is free and unencumbered software released into the public domain [2](http://unlicense.org/ "unlicense.org")
 * easy to install and maintain
 
 ### The DIY or DIE Server allows:
@@ -18,10 +19,11 @@
 ## References
 
 1. [Tor: Hidden Service Protocol](https://www.torproject.org/docs/hidden-services.html.en "Hidden Service Protocol")
+2. [unlicense.org](http://unlicense.org/ "unlicense.org")
 
 ## External links
 
 * [torproject.org](https://www.torproject.org/ "torpropject.org") - Anonyminty Online
 * [debian.org](http://www.debian.org/ "debian.org") - The Universal Operating System
 
-* An [example](http://url.com/ "Title")
+* [example](http://url.com/ "Title")
