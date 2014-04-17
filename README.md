@@ -21,7 +21,7 @@
 
 ## External links
 
-* [torproject.org](https://www.torproject.org/ "torpropject.org")
-* [Debian.org](http://www.debian.org/ "Debian.org") - a free operating system (OS)
+* [torproject.org](https://www.torproject.org/ "torpropject.org") - Anonyminty Online
+* [Debian.org](http://www.debian.org/ "Debian.org") - The Universal Operating System
 
 * An [example](http://url.com/ "Title")
