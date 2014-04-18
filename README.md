@@ -201,6 +201,44 @@ Accept this solution? [Y/n/q/?]
 ```
 Type `Y` to continue
 
+During the Wordpress installation, this will appear
+
+*Be sure to use the MySQL "root" user password*
+
+```
+###################
+#                 #
+# MySQL root user #
+#                 #
+###################
+Enter password: 
+Repeat password:
+```
+When the installation is finished, this will appear (your `.onion` address will be different)
+```
+  ________           __          
+ /  _____/  ____   _/  |_  ____  
+/   \  ___ /  _ \  \   __\/  _ \ 
+\    \_\  (  <_> )  |  | (  <_> )
+ \______  /\____/   |__|  \____/ 
+        \/                       
+###################################
+###################################
+##                               ##
+## http://s64ltpbbrclhhk3v.onion ##
+##                               ##
+###################################
+###################################
+__________ __    ____   ____    .__.__    __    ._.
+_   _____//  |_  \   \ /   /___ |__|  | __\/_   | |
+|    __)_\   __\  \   Y   /  _ \|  |  | \__  \  | |
+|        \|  |     \     (  <_> )  |  |__/ __ \_ \|
+_______  /|__|      \___/ \____/|__|____(____  / __
+       \/                                    \/  \/
+root@debian:~# _
+```
+Simply enter the `.onion` address into a Tor browser
+
 ## References
 
 1. [Tor: Hidden Service Protocol](https://www.torproject.org/docs/hidden-services.html.en "Hidden Service Protocol")
